@@ -6,9 +6,9 @@ module HotwireDatepicker
       delegate :bypass_convenience_methods?, to: :HotwireDatepicker
 
       def hw_alias(method_name)
-        unless bypass_convenience_methods?
-          alias_method method_name.to_s.sub(/^hw_/, ""), method_name
-        end
+        return if bypass_convenience_methods?
+
+        alias_method method_name.to_s.sub(/^hw_/, ""), method_name
       end
     end
 
